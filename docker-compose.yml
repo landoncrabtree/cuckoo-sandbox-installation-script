@@ -14,7 +14,7 @@ services:
       - ./data-postgres:/var/lib/postgresql/data/pgdata
 
   mongo:
-    image: mongo
+    image: mongo:4.0.4
     ports:
       - 27017:27017
     volumes:
