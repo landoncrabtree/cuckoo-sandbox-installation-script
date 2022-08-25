@@ -12,13 +12,16 @@ pip install --no-cache-dir setuptools \
     psycopg2 \
     bottle
 
-printf "\n>>> Installing cuckoo & vmcloak\n\n"
+printf "\n>>> Installing cuckoo & vmcloak...\n\n"
 pip install --no-cache-dir cuckoo vmcloak
 pip uninstall -y werkzeug
 pip install --no-cache-dir werkzeug==0.16.1
 
+printf "\n>>> Creating vboxnet0 interface...\n\n"
+vmcloak-vboxnet0
+
 printf "\n>>> Creating Windows base image...\n\n"
-vmcloak init --verbose --win7x64 win7x64base --cpus 2 --ramsize 2048
+vmcloak init --verbose --win7x64 win7x64Base --cpus 2 --ramsize 2048
 
 printf "\n>>> Creating cuckoo image from base file...\n\n"
 vmcloak clone win7x64base win7x64cuckoo
@@ -29,7 +32,9 @@ vmcloak install win7x64cuckoo adobepdf pillow dotnet java flash vcredist vcredis
 printf "\n>>> Creating snapshots...\n\n"
 vmcloak snapshot --count 4 win7x64cuckoo cuckoo 192.168.56.101
 
+printf "\n>>> Initializing cuckoo...\n\n"
+cuckoo init
+
 printf "\n>>> Settings configurations...\n\n"
 mv ~/.cuckoo/conf/ ~/.cuckoo/conf.old
-cp -R ~/conf ~/.cuckoo/conf
-rm -rf ~/conf
+cp -R ./conf ~/.cuckoo/conf
