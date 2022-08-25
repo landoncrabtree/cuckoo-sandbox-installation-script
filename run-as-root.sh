@@ -38,6 +38,7 @@ printf "\n>>> USER : User settings and manage files...\n\n"
 
 sudo aa-disable /usr/sbin/tcpdump
 
+mkdir /home/cuckoo
 cp ./run-as-cuckoo.sh /home/cuckoo/run-as-cuckoo.sh
 chown cuckoo:cuckoo /home/cuckoo/run-as-cuckoo.sh
 chmod a+x /home/cuckoo/run-as-cuckoo.sh
