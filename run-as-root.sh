@@ -7,7 +7,7 @@ sudo apt upgrade
 
 printf "\n>>> INSTALL : Neccessary packages...\n\n"
 
-sudo apt-get install -y software-properties-common build-essential \
+sudo apt-get install -y openssl software-properties-common build-essential \
     python python-pip python-dev libffi-dev libssl-dev \
     python-virtualenv python-setuptools \
     libjpeg-dev zlib1g-dev swig libpq-dev \
@@ -28,7 +28,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 printf "\n>>> SETTINGS : Creating User and Group for Cuckoo\n\n"
 
-sudo adduser --disabled-password --gecos "" cuckoo
+sudo useradd -p $(openssl passwd -1 cuckoo) cuckoo
 sudo groupadd pcap
 sudo usermod -a -G pcap cuckoo
 sudo chgrp pcap /usr/sbin/tcpdump
@@ -51,7 +51,7 @@ chown -R cuckoo:cuckoo /home/cuckoo/conf
 
 printf "\n>>> INSTALL : Installing and mount win7 image\n\n"
 
-wget https://cuckoo.sh/win7ultimate.iso
+wget https://cuckoo.sh/win7ultimate.iso --no-check-certificate
 mkdir /mnt/win7
 sudo mount -o ro,loop win7ultimate.iso /mnt/win7
 
