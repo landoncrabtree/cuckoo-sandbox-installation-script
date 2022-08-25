@@ -24,7 +24,7 @@ printf "\n>>> Creating Windows base image...\n\n"
 vmcloak init --verbose --win7x64 win7x64Base --cpus 2 --ramsize 2048
 
 printf "\n>>> Creating cuckoo image from base file...\n\n"
-vmcloak clone win7x64base win7x64cuckoo
+vmcloak clone win7x64Base win7x64cuckoo
 
 printf "\n>>> Installing packages in cuckoo image...\n\n"
 vmcloak install win7x64cuckoo adobepdf pillow dotnet java flash vcredist vcredist.version=2015u3 wallpaper win7x64cuckoo ie11
