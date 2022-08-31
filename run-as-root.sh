@@ -93,7 +93,12 @@ printf "\n>>> SERVICE : Create cuckoo web service\n\n"
 cp ./services/cuckoo-web.service /etc/systemd/system/cuckoo-web.service
 systemctl enable cuckoo-web.service
 
-printf "\n>>> SERVICE : Create cuckoo web service\n\n"
+printf "\n>>> SERVICE : Create cuckoo api service\n\n"
 
 cp ./services/cuckoo-api.service /etc/systemd/system/cuckoo-api.service
 systemctl enable cuckoo-api.service
+
+printf "\n>>> SERVICE : Create cuckoo rooter service\n\n"
+
+cp ./services/cuckoo-rooter.service /etc/systemd/system/cuckoo-rooter.service
+systemctl enable cuckoo-rooter.service
