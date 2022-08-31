@@ -1,0 +1,14 @@
+[Unit]
+Description=Cuckoo Rooter Service
+Requires=cuckoo.service
+After=cuckoo.service
+
+[Service]
+User=root
+RemainAfterExit=yes
+ExecStart=/home/cuckoo/cuckoo/bin/cuckoo rooter
+TimeoutStartSec=0
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
