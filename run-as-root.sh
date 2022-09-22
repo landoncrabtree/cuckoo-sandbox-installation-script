@@ -51,6 +51,8 @@ chmod a+x /home/cuckoo/start-cuckoo.sh
 cp -R ./conf /home/cuckoo/conf
 chown -R cuckoo:cuckoo /home/cuckoo/conf
 
+chown -R cuckoo:cuckoo /home/cuckoo
+
 printf "\n>>> INSTALL : Installing and mount win7 image\n\n"
 
 wget https://cuckoo.sh/win7ultimate.iso --no-check-certificate
