@@ -26,7 +26,7 @@ Tested on;
 - Download this repo:
 
 ```
-$ wget -O cuckoo-setup.zip https://github.com/cyberthint/cuckoo-sandbox-installation-script/archive/refs/heads/master.zip
+$ wget -O cuckoo-setup.zip https://github.com/landoncrabtree/cuckoo-sandbox-installation-script/archive/refs/heads/master.zip
 $ unzip cuckoo-setup.zip
 $ cd cuckoo-sandbox-installation-script-master/
 ```
