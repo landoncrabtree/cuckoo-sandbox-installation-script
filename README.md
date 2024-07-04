@@ -1,5 +1,7 @@
 # Cuckoo Sandbox Full Automated Installation Script
 
+> This repository has been archived as the Cuckoo Sandbox software has been archived by its developers. As such, a lot of critical dependencies (such as the win7ultimate vm image) 404 now, making this script effectively useless. 
+
 This repository contains scripts to install cuckoo with required services/packages simply.  
 
 Basic features are:
